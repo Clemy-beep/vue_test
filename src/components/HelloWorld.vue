@@ -1,8 +1,6 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>{{ msg2 }}</h2>
-    <button v-on:click="say('hi')">Click me</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -88,18 +86,11 @@
   </div>
 </template>
 
-<script>
+<script language="ts">
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
-    msg2: String,
-  },
-  methods: {
-    say: function (msg) {
-      alert(msg);
-      console.log(msg);
-    },
   },
 };
 </script>
@@ -108,9 +99,6 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
-}
-h2 {
-  font-family: "Courier New", Courier, monospace;
 }
 ul {
   list-style-type: none;
@@ -123,5 +111,4 @@ li {
 a {
   color: #42b983;
 }
-
 </style>
