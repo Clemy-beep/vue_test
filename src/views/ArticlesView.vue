@@ -1,6 +1,7 @@
 <template>
   <div class="article">
     <h1>This is an articles list</h1>
+    <p>{{ isLoading ? "Loading..." : "" }}</p>
     <div id="articles" v-for="(article, key) in articles" :key="key">
       <ArticleComponent
         :title="article.title"
@@ -26,6 +27,7 @@ export default {
     return {
       articles: this.fetchArticles(),
       clicked: false,
+      isLoading: true,
     };
   },
   name: "ArticleList",
@@ -35,13 +37,13 @@ export default {
   methods: {
     makeMeRed: function () {
       this.clicked = !this.clicked;
-      console.log("makeMeRed");
     },
     fetchArticles: async function () {
       await fetch("/api/getArticles.php").then((res) => {
         try {
           res.json().then((value) => {
             this.articles = value;
+            this.isLoading = false;
             return value;
           });
         } catch (e) {
@@ -60,5 +62,9 @@ h3 {
 }
 .isClicked {
   color: red;
+}
+
+.loading {
+  display: none;
 }
 </style>

@@ -24,5 +24,10 @@ export default {
   margin: 1em auto;
   padding: 0.5em;
   border-radius: 16px;
+  text-overflow: ellipsis;
+}
+p {
+  max-height: 110px;
+  overflow: hidden;
 }
 </style>
