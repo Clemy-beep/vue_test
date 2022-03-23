@@ -10,7 +10,7 @@ export default {
   name: "AuthorComponent",
   data() {
     return {
-      author: this.fetchAuthor(),
+      author: {},
     };
   },
   methods: {
